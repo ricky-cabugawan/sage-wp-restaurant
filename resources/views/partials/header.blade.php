@@ -8,14 +8,15 @@
     </nav>
   </div> --}}
 <div class="header-container">
-
+	{{-- login --}}
 	<div class="login-box">
 		<a href="" class="">Login</a>
 		<span class="text-secondary">|</span>
 		<a href="" class="">Signup</a>
 	</div>
 
-	<nav class="navbar sticky-top navbar-expand-lg navbar-light px-0">
+	{{-- navbar --}}
+	<nav class="main-nav navbar navbar-expand-lg navbar-light px-0">
 	  <a class="navbar-brand" href="#"><img class="logo-mic" src="@asset('images/indian-logo.jpg')"></a>
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
@@ -39,6 +40,12 @@
 	    </ul>
 	  </div>
 	</nav>
+
+	{{-- floating button --}}
+	<div class="lower-left-btn">
+		<button class="btn btn-danger px-4 py-2">Order Online!</button>
+	</div>
+
 </div>
 
 </header>
@@ -47,16 +54,25 @@
 	body {
 		font-family: 'Open Sans', sans-serif;
 	}
+
 	.header-container {
-		padding:0 30px;
+	/*	padding:0 30px;*/
 	}
+	
 	.navbar {
 		align-items: flex-end;
 		background-color: white;
 	}
+
+	.navbar-brand:hover {
+		opacity: 0.75;
+		transition: all 0.5s;
+	}
+
 	.logo-mic {
 		max-height: 130px; 
 	}
+
 	ul.navbar-nav {
 		display: grid;
 		grid-auto-flow: column;
@@ -71,6 +87,7 @@
 		padding: .5rem .75rem;
 
 	}
+
 	.navbar-nav li button:hover {
 		background: #843c0c;
     	color: #fff;
@@ -92,4 +109,29 @@
 	.login-box a {
 		color:#333;
 	}
+
+	.lower-left-btn {
+		position: fixed;
+		left: 10px;
+		bottom: 5px;
+
+	}
+
+	.lower-left-btn button{
+		background-color: #ED0505;
+		border: none;
+	}
 </style>
+
+<script type="text/javascript">
+	jQuery(window).scroll(function() {
+	var $height = jQuery(window).scrollTop();
+	  if($height > jQuery('header').height()) {
+			jQuery('.main-nav').addClass('fixed-top');
+			jQuery('.wrap').css("margin-top","140px");
+		} else {
+			jQuery('.main-nav').removeClass('fixed-top');
+			jQuery('.wrap').css("margin-top","0px");
+		}
+	});
+</script>
