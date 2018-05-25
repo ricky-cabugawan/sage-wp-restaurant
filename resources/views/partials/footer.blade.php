@@ -3,12 +3,17 @@
     @php dynamic_sidebar('sidebar-footer') @endphp
   </div>
   <div class="footer-container p-4">
-  	<div class="footer-company">
+  	{{-- <div class="footer-company">
   		<h4>Company</h4>
   		<p><a href="">About Us</a></p>
   		<p><a href="">Terms and Conditions</a></p>
   		<p><a href="">Contact Us</a></p>
-  	</div>
+  	</div> --}}
+
+  
+  		{!!wp_get_nav_menu_object('Company')->name!!}
+
+
   	<div class="footer-learn-more">
   		<h4>Learn More</h4>
   		<p><a href="">Order Online</a></p>

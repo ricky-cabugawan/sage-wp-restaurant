@@ -17,15 +17,15 @@
 
 	{{-- navbar --}}
 	<nav class="main-nav navbar navbar-expand-lg navbar-light px-0">
-	  <a class="navbar-brand" href="#"><img class="logo-mic" src="@asset('images/indian-logo.jpg')"></a>
+	  <a class="navbar-brand" href="{{ home_url('/') }}"><img class="logo-mic" src="@asset('images/indian-logo.jpg')"></a>
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
 	  </button>
 
-	  <div class="collapse navbar-collapse pr-4" id="navbarsExample04">
+	  {{-- <div class="collapse navbar-collapse pr-4" id="navbarsExample04">
 
-	    <ul class="navbar-nav ml-auto">
-	      <li class="nav-item">
+	    <ul class="navbar-nav ml-auto"> --}}
+	      {{-- <li class="nav-item">
 	        <button type="button" class="btn text-uppercase rounded-0 font-weight-bold">menu / order online</button>
 	      </li>
 	      <li class="nav-item">
@@ -34,11 +34,19 @@
 	      <li class="nav-item">
 	        <button type="button" class="btn text-uppercase rounded-0 font-weight-bold">order catering now</button>
 	      </li>
-	      <li class="nav-item dropdown">
+	      <li class="nav-item">
 	        <button type="button" class="btn text-uppercase rounded-0 font-weight-bold">contact us</button>
-	      </li>
-	    </ul>
-	  </div>
+	      </li> --}}
+	    {{-- </ul>
+	  </div> --}}
+	      {!! wp_nav_menu(['theme_location' => 'primary_navigation', 
+	      					'container_class' => 'collapse navbar-collapse pr-4',
+	      					'container_id' => 'navbarsExample04',
+	      					'menu_class' => 'navbar-nav ml-auto',
+	      					'before' => "<button type='button' class='btn text-uppercase rounded-0 font-weight-bold'>",
+	      					'after' => "</button>",
+	      					'depth' => 1
+	      					]) !!}
 	</nav>
 
 	{{-- floating button --}}
@@ -79,6 +87,17 @@
 		grid-gap: 5px;
 		margin-bottom: 13px;
 	}
+
+	.navbar-nav li a {
+		color: #684F00;
+		text-decoration: none;
+	}
+
+	.navbar-nav li a:hover {
+		color: #fff;
+		text-decoration: none;
+	}
+
 
 	.navbar-nav li button {
 		background-color: #FFC739;
